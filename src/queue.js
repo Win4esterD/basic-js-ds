@@ -34,7 +34,7 @@ class Queue {
     return this.firstNode
   }
 
-  enqueue(value) {
+ /*  enqueue(value) {
     if(!this.firstNode){
       this.firstNode = new Node(value)
       this.currentNode = this.firstNode;
@@ -44,6 +44,18 @@ class Queue {
     }else{
       this.currentNode.next = new Node(value);
       this.currentNode = this.currentNode.next;
+    }
+  } */
+
+  enqueue(value){
+    if(!this.firstNode){
+      this.firstNode = new Node(value)
+    }else if(!this.firstNode.next){
+      this.firstNode.next = new Node(value)
+      this.currentNode = this.firstNode.next
+    }else{
+      this.currentNode.next = new Node(value)
+      this.currentNode = this.currentNode.next
     }
   }
 
