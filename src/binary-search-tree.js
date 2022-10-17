@@ -59,11 +59,11 @@ class Node
 
   constructor(){
         // root of a binary search tree
-        this.root = null;
+        this.roo = null;
     }
 
   root() {
-    return this.root;
+    return this.roo;
   }
 
   add(data){
@@ -73,13 +73,13 @@ class Node
                      
     // root is null then node will
     // be added to the tree and made root.
-    if(this.root === null)
-        this.root = newNode;
+    if(this.roo === null)
+        this.roo = newNode;
     else
  
         // find the correct position in the
         // tree and add the node
-        this.insertNode(this.root, newNode);
+        this.insertNode(this.roo, newNode);
     }
     insertNode(node, newNode){
     // if the data is less than the node
@@ -124,7 +124,7 @@ class Node
   remove(data){
     // root is re-initialized with
     // root of a modified tree.
-    this.root = this.removeNode(this.root, data);
+    this.roo = this.removeNode(this.roo, data);
 }
  
 // Method to remove node with a
@@ -197,6 +197,18 @@ class Node
       else
           return this.findMinNode(node.left);
       }
+
+      find(node, data) {
+        if (node === null) {
+            return null;
+        } else if (data < node.data) {
+            return this.search(node.left, data);
+        } else if (data > node.data) {
+            return this.search(node.right, data);
+        } else {
+            return node;
+        }
+    }
 
       min(node){
         // if left of a node is null
